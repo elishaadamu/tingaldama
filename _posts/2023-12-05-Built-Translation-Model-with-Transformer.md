@@ -532,4 +532,4 @@ translated_sentence = translate(src_sentence, model, sp)
 
 Heres the examples of translating english into Spanish, German and Chinese
 
-![alt text]({{site.baseurl}}/assets/images/translation_model/trans-examples.png)
+![trans-examples]({{site.baseurl}}/assets/images/translation_model/trans-examples.png)
