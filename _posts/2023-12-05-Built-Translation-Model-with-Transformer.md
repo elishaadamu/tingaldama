@@ -12,14 +12,14 @@ In the "Attention is All You Need" paper, the authors introduced the self-attent
 
 The transformer model architecture was proposed in the paper: 
 
-![Transformer Model](/assets/images/translation_model/transformer.png)
+![Transformer Model]({{site.baseurl}}/assets/images/translation_model/transformer.png)
 
 ## Encoder
 
 The encoder's purpose is to obtain the **best contextual representation for the source language**. It consists of multiple layers, and the input goes through these layers multiple times to yield optimal results. This iterative process allows the encoder to capture the nuances and dependencies within the source language.
 On the left side in the red circle is the encoder layer:
 
-![Encoder](/assets/images/translation_model//encoder.png)
+![Encoder]({{site.baseurl}}/assets/images/translation_model//encoder.png)
 
 ---
 
@@ -161,7 +161,7 @@ class EncoderLayer(nn.Module):
 The decoder is a crucial component in the Transformer architecture, responsible for generating the translated tokens in the target language. Its main objective is to capture the dependencies and relationships among the translated tokens while utilizing the representations from the encoder.
 The decoder operates by first performing self-attention on each of the translated tokens in the source language. This self-attention mechanism allows the decoder to consider the context and dependencies within the translated sequence itself. By attending to its own previous outputs, the decoder can generate more coherent and contextually relevant translations. The red circlec is the decoder part of the architecture:
 
-![decoder](/assets/images/translation_model/decoder.png)
+![decoder]({{site.baseurl}}/assets/images/translation_model/decoder.png)
 
 The decoder architecture consists of several key components, including multi-head self-attention, cross-attention, normalization, and regularization techniques. These components work together to enable the decoder to effectively capture the nuances and dependencies in the target language.
 
@@ -225,7 +225,7 @@ class MultiHeadAttn(nn.Module):
 
 Cross Attention only modifies the input of Self Attention. The decoder of the Transformer is shown in the right module of the figure below:
 
-![crossattn](/assets/images/translation_model/inputs.png)
+![crossattn]({{site.baseurl}}/assets/images/translation_model/inputs.png)
 
 1. With three inputs labeled as input1~3. The decoder recursively inputs input1: the output of the decoder from the previous time step (the first input is `<bos>`, indicating the beginning of the sentence)
 2. Adds it to input2: position encoding representing positional information, and performs cross attention with input3. Intuitively, what Cross Attention does is to use the information of key/value to represent the information of query, or to condition query on the condition of key/value. It can also be said to introduce the information of key/value into the information of query (because there is a residual layer that adds to the original query information), and what is obtained is the relevance of query to key (query attending to key, e.g., vehicle attending to lanes, vice versa).
@@ -532,4 +532,4 @@ translated_sentence = translate(src_sentence, model, sp)
 
 Heres the examples of translating english into Spanish, German and Chinese
 
-![alt text](/assets/images/translation_model/trans-examples.png)
+![alt text]({{site.baseurl}}/assets/images/translation_model/trans-examples.png)

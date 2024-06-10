@@ -2,7 +2,7 @@ title: Midnight theme
 description: Midnight is a theme for GitHub Pages.
 show_downloads: true
 google_analytics:
-baseurl: midnight
+baseurl: /midnight
 theme: jekyll-theme-midnight
 image: /assets/images/img_avatar.png
 
@@ -15,3 +15,6 @@ defaults:
       layout: "post"
 
 excerpt_separator: <!--more-->
+
+paginate: 5 # Number of posts per page
+paginate_path: "/page:num/"

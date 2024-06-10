@@ -28,19 +28,7 @@
 }
   </style>
   <body>
-      <div id="header">
-        <nav>
-          <ul>
-            <li class="fork"><a href="/">Home</a></li>
-           
-              <li class="downloads"><a href="/about">About</a></li>
-              <li class="downloads"><a href="/blog">Blogs</a></li>
-              
-            
-          </ul>
-        </nav>
-      </div><!-- end header -->
-
+    {% include header.html %}
     <div class="wrapper">
 
       <section>
@@ -51,7 +39,7 @@
 <ul>
   {% for post in site.posts %}
     <li>
-     <h2> <a href="{{ post.url }}">{{ post.title }}</a></h2>
+     <h2> <a href="{{site.baseurl}}/{{ post.url }}">{{ post.title }}</a></h2>
      <h4>{{ post.summary | truncate: 200}}</h4>
       <span class="date">Date: {{ post.date | date: "%B %d, %Y" }}</span>
       <br>
