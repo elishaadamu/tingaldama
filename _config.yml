@@ -5,6 +5,7 @@ google_analytics:
 baseurl: /midnight
 theme: jekyll-theme-midnight
 image: /assets/images/img_avatar.png
+favicon: /assets/images/favicon.jpg
 
 # Defaults
 defaults:
@@ -15,6 +16,3 @@ defaults:
       layout: "post"
 
 excerpt_separator: <!--more-->
-
-paginate: 5 # Number of posts per page
-paginate_path: "/page:num/"
