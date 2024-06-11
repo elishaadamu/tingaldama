@@ -3,4 +3,4 @@ layout: home
 title: Home
 ---
 
-# # Welcome to My Portfolio! 🌟
+# Welcome to My Portfolio! 🌟
