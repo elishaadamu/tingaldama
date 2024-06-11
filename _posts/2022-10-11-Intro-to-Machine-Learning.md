@@ -51,7 +51,7 @@ How to **systematically analyze** how good an algorithm is for a prediction task
 
 - **Data**:$$(x_1, y_1), (x_2, y_2), \ldots \in X \times Y$$
 
-- **Assumption:** There is a (relatively simple) function:$$f^*: X \to Y$ such that $f^*(\vec{x}_i) = y_i$$ for most $$i$$
+- **Assumption:** There is a (relatively simple) function:$$f^*: X \to Y$$ such that $$f^*(\vec{x}_i) = y_i$$ for most $$i$$
 
 - **Learning Task:** Given $n$ examples, find an approximation: $$\hat{f} \approx f^*$$
 
@@ -60,7 +60,7 @@ How to **systematically analyze** how good an algorithm is for a prediction task
 ### **Statistical Modeling Approach:**
 
 - **Labeled Training Data:** $$(x_i, y_i)$$ drawn independently from a fixed underlying distribution (i.i.d assumption).
-- **Learning Algorithm:** Select $$\hat{f}$$ from a pool of models $F$ that maximize label agreement of the training data.
+- **Learning Algorithm:** Select $$\hat{f}$$ from a pool of models $$F$$ that maximize label agreement of the training data.
 - **Selection Methods:** Maximum likelihood, maximum a posteriori, optimization of 'loss' criterion.
 
 ### Classification
@@ -74,7 +74,7 @@ The classifier
 - **Classifier:** $$f: X \rightarrow Y$$
 - **Goal:** Maximize the accuracy of the classifier: $$\text{acc}(f) := P_{(x,y)}[f(x) = y] = E_{(x,y)}[1[f(x) = y]]$$
 
-We want a classifier $f$ that maximizes $$\text{acc}$$
+We want a classifier $$f$$ that maximizes $$\text{acc}$$
 
 ---
 
@@ -99,14 +99,17 @@ $$P(Y|X) = \frac{P(X|Y) \cdot P(Y)}{P(X)}$$
 
 Where:
 
-- $P(Y|X)$ is the posterior probability: This is the probability of the class $$Y$$ given the observed data $$X$$. It is what we ultimately want to calculate in classification tasks, and it tells us how probable a class is given the observed features.
-- $P(X|Y)$ is the likelihood: This is the probability of observing the data (features) $$X$$ given a particular class $$Y$$. It's used to measure how likely the observed data is for different possible classes.
-- $P(Y)$ is the prior probability of the class $$Y$$.
-- $P(X)$ is the evidence (overall probability of the data)
+- $$P(Y \vert X)$$ is the posterior probability: This is the probability of the class $$Y$$ given the observed data $$X$$. It is what we ultimately want to calculate in classification tasks, and it tells us how probable a class is given the observed features.
+
+- $$P(X \vert Y)$$ is the likelihood: This is the probability of observing the data (features) $$X$$ given a particular class $$Y$$. It's used to measure how likely the observed data is for different possible classes.
+
+- $$P(Y)$$ is the prior probability of the class $$Y$$.
+
+- $$P(X)$$ is the evidence (overall probability of the data)
 
 #### Discriminative Classifier
 
-A model of form $$p(y|x)$$ is classed a discriminative classifier. It works by modeling the decision boundary directly between classes without explicitly computing the joint or conditional probabilities. Instead of modeling how data is generated, discriminative classifiers focus on learning the relationship between the features and the labels.
+A model of form $$p(y \vert x)$$ is classed a discriminative classifier. It works by modeling the decision boundary directly between classes without explicitly computing the joint or conditional probabilities. Instead of modeling how data is generated, discriminative classifiers focus on learning the relationship between the features and the labels.
 
 $$g(x) = X \rightarrow Y$$ 
 
@@ -138,7 +141,7 @@ We want to classify emails as "spam" or "not spam" based on features like the pr
 
 ##### Step 1: Bayes Classifier
 
-The Bayes classifier aims to find the class $y$ (spam or not spam) that maximizes the posterior probability $P(Y = y \mid X = x)$.
+The Bayes classifier aims to find the class $$y$$ (spam or not spam) that maximizes the posterior probability $$P(Y = y \mid X = x)$$.
 
 $$f(x) = \arg\max_{y \in \{ \text{spam, not spam} \}} P(Y = y \mid X = x)$$
 
@@ -155,7 +158,7 @@ $$f(x) = \arg\max_{y \in \{ \text{spam, not spam} \}} P(X = x \mid Y = y) \cdot 
 To use the Bayes classifier, we need to estimate the following probabilities from our data:
 
 1. **Prior Probability $$P(Y = y)$$**: The probability that an email is "spam" or "not spam".
-2. **Likelihood $$P(X = x \mid Y = y)$$**: The probability of observing the features $x$ given that the email is "spam" or "not spam".
+2. **Likelihood $$P(X = x \mid Y = y)$$**: The probability of observing the features $$x$$ given that the email is "spam" or "not spam".
 
 **Estimating Prior Probability $$P(Y = y)$$**
 
@@ -163,7 +166,7 @@ $$P(Y = \text{spam}) = \frac{\text{Number of spam emails}}{\text{Total number of
 
 $$P(Y = \text{not spam}) = \frac{\text{Number of not spam emails}}{\text{Total number of emails}}$$
 
-**Estimating Likelihood $$P(X = x \mid Y = y)$$ Using MLE** 
+**Estimating Likelihood $$P(X = x \mid Y = y)$$ Using MLE**
 
 We assume that the features $$X$$ (e.g., presence of words) follow a certain distribution. For simplicity, let's assume that the features are binary (presence or absence of certain words) and follow a Bernoulli distribution.
 
@@ -181,7 +184,7 @@ For a binary feature $$X_i$$:
 
 $$L(\theta_{i,\text{spam}}) = \prod_{j=1}^{n} \theta_{i,\text{spam}}^{x_{ij}} (1 - \theta_{i,\text{spam}})^{1 - x_{ij}}$$
 
-Where $$x_{ij}$$ is the value of the $i$-th feature for the $$j$$-th email (1 if the word is present, 0 otherwise).
+Where $$x_{ij}$$ is the value of the $$i$$-th feature for the $$j$$-th email (1 if the word is present, 0 otherwise).
 
 The log-likelihood is:
 
@@ -195,7 +198,7 @@ Solving for $$\theta_{i,\text{spam}}$$:
 
 $$\hat{\theta}_{i,\text{spam}} = \frac{\sum_{j=1}^{n} x_{ij}}{n}$$
 
-This is the proportion of emails where the word $i$ appears in spam emails.
+This is the proportion of emails where the word $$i$$ appears in spam emails.
 
 ##### **Step 3: Applying Bayes Classifier with MLE Estimates**
 
