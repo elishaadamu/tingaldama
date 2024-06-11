@@ -80,7 +80,7 @@ We want a classifier $$f$$ that maximizes $$\text{acc}$$
 
 #### Generative Classifier
 
-A model with form $$p(x,y)$$  $$ = p(y)p(x|y)$$ is called a generative classifier, since it can be used to generate examples x from each class y.
+A model with form $$p(x,y)$$  $$ = p(y)p(x\vert y)$$ is called a generative classifier, since it can be used to generate examples x from each class y.
 
 Examples of generative classifier:
 
