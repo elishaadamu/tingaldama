@@ -1,10 +1,8 @@
 ---
 layout: about
-title: About Me
+title: About Me 😊
 permalink: about
 ---
-
-## About Me 😊
 
 Hello! I'm [Your Name], a passionate and dedicated [Your Profession] with a background in [Your Field or Industry]. I have extensive experience in [specific skills or areas of expertise], and I am committed to continuous learning and professional development. 📚
 
